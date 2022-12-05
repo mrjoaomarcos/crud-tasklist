@@ -1,0 +1,33 @@
+<mat-card >
+
+  <mat-card-content >
+
+    <mat-toolbar color="primary">Nova Tarefa</mat-toolbar>
+
+    <form [formGroup]="form" class="min-width" >
+      <mat-form-field class="full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Custo</mat-label>
+        <input matInput formControlName="cost" type="number" />
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Data Limite</mat-label>
+        <input matInput formControlName="date" [matDatepicker]="picker"/>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" style="margin-right: 5px;" (click)="onSubmit()">Salvar</button>
+    <button mat-raised-button (click)="onCancel()">Cancelar</button>
+  </mat-card-actions>
+</mat-card>
